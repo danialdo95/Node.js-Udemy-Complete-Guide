@@ -8,7 +8,14 @@ const app = express();
 
 const PORT = process.env.PORT || 5000
 
-app.engine('hbs', expressHbs());
+app.engine(
+    'hbs', 
+    expressHbs({
+        layoutsDir: 'views/layouts/', 
+        defaultLayout: 'main-layout',
+        extname: 'hbs'
+    })
+);
 // app.set('view engine', 'pug');
 app.set('view engine', 'hbs');
 app.set('views', 'views');
