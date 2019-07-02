@@ -8,8 +8,9 @@ const app = express();
 
 const PORT = process.env.PORT || 5000
 
-app.engine('handlebars', expressHbs());
-app.set('view engine', 'pug');
+app.engine('hbs', expressHbs());
+// app.set('view engine', 'pug');
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 const adminData = require('./routes/admin');
