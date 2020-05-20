@@ -5,7 +5,9 @@ const express = require('express');
 //Body parser is to parse request and response body 
 const bodyParser = require('body-parser');
 
-const errorController = require('./controllers/error')
+const errorController = require('./controllers/error');
+
+const sequelize = require('./util/database');
 
 const app = express();
 
@@ -29,5 +31,9 @@ app.use(shopRoutes);
 
 app.use(errorController.get404Page);
 
-
-app.listen(PORT);
+sequelize.sync().then((result) => {
+    //console.log(result);
+    app.listen(PORT);
+}).catch((err) => {
+    console.log(err);
+});

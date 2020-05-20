@@ -10,7 +10,7 @@ const p = path.join(
 
 
 module.exports = class Cart {
-   static addProduct(id, productPrice) {
+   static addProduct(id, productPrice) { 
        // Fetch the previous cart
        fs.readFile(p, (err, fileContent) => {
         let cart = {products: [], totalPrice: 0};   
